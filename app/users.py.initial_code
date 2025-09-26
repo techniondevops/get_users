@@ -9,4 +9,5 @@ print(users[0]['firstName'])
 
 for user in users:
     print (user['firstName'])
+
     
