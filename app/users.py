@@ -1,11 +1,19 @@
 import requests
 
-#Users origin: "https://dummyjson.com/users?limit=85"
 
-downloadusers   =   requests.get("https://dummyjson.com/users?limit=85") #downloading
-#print(downloadusers)
-users   =   downloadusers.json().get('users',[]) #convert to list
-print(users[0]['firstName'])
+def get_users() -> list:
+    downloadusers   =   requests.get("https://dummyjson.com/users?limit=85") #downloading
+    users   =   downloadusers.json().get('users',[]) #convert to list
+    return users
 
-for user in users:
-    print (user['firstName'])
+def print_users(users:list) -> None:
+    for user in users:
+        print (user['firstName'])
+
+
+def main():
+    users    =   get_users()
+    print_users (users)
+
+if __name__ == "__main__":
+    main()
