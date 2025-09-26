@@ -1,1 +1,11 @@
-#comment
+import requests
+
+#Users origin: "https://dummyjson.com/users?limit=85"
+
+downloadusers   =   requests.get("https://dummyjson.com/users?limit=85") #downloading
+#print(downloadusers)
+users   =   downloadusers.json().get('users',[]) #convert to list
+print(users[0]['firstName'])
+
+for user in users:
+    print (user['firstName'])
